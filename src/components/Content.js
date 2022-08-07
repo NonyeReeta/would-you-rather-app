@@ -23,7 +23,8 @@ class Content extends Component {
     );
   }
 }
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions }, { id }) {
+  console.log(id);
   return {
     questionsIds: Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp

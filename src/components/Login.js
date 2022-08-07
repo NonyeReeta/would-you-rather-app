@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { handleInitialData, getAuthedUser } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
 
@@ -22,9 +23,11 @@ class Login extends Component {
 
           <ul className="users">
             {users.map((user) => (
-              <li key={user} onClick={() => getAuthedUser(user)}>
-                {user}
-              </li>
+              <Link to="/" key={user}>
+                <li key={user} onClick={() => getAuthedUser(user)}>
+                  {user}
+                </li>
+              </Link>
             ))}
           </ul>
         </div>

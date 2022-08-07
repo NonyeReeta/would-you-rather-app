@@ -5,7 +5,7 @@ import { setAuthedUser } from "./authedUser";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 // const AUTHED_ID = "sarahedo";
-// const AUTHED_ID = "";
+let AUTHED_ID = "";
 
 const getInitialData = async () => {
   const [users, questions] = await Promise.all([_getUsers(), _getQuestions()]);
@@ -16,14 +16,12 @@ const getInitialData = async () => {
 };
 export function getAuthedUser(user) {
   console.log(user);
-  return async (dispatch) => {
-    dispatch(showLoading());
-    const { users, questions } = await getInitialData();
-    dispatch(receiveQuestions(questions));
-    dispatch(receiveUsers(users));
-    dispatch(setAuthedUser(user));
-    dispatch(hideLoading());
-  };
+  AUTHED_ID = user;
+  // return async (dispatch) => {
+  //   dispatch(showLoading());
+  //   dispatch(setAuthedUser(user));
+  //   dispatch(hideLoading());
+  // };
 }
 export function handleInitialData() {
   return async (dispatch) => {
@@ -31,7 +29,7 @@ export function handleInitialData() {
     const { users, questions } = await getInitialData();
     dispatch(receiveQuestions(questions));
     dispatch(receiveUsers(users));
-    // dispatch(setAuthedUser(AUTHED_ID));
+    dispatch(setAuthedUser(AUTHED_ID));
     dispatch(hideLoading());
   };
 }
