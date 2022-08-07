@@ -1,0 +1,41 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { handleInitialData, getAuthedUser } from "../actions/shared";
+import LoadingBar from "react-redux-loading-bar";
+
+class Login extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData());
+  }
+  render() {
+    const { users } = this.props;
+    return (
+      <div className="login">
+        <LoadingBar />
+
+        <h1>
+          <em>Would You Rather?</em>
+        </h1>
+
+        <div className="login-content">
+          <h4>Login as:</h4>
+
+          <ul className="users">
+            {users.map((user) => (
+              <li key={user} onClick={() => getAuthedUser(user)}>
+                {user}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
+function mapStateToProps({ users }) {
+  return {
+    users: Object.keys(users),
+  };
+}
+
+export default connect(mapStateToProps)(Login);
