@@ -12,16 +12,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.content-nav {
+.content {
   height: 100%;
   /* border-style: solid; */
 }
-/* .content-nav-links {
-  list-style: none;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-} */
+.content-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 h4 {
   color: #2c3333;
@@ -49,11 +47,7 @@ h3 {
   font-weight: lighter;
   margin-top: 0;
 }
-h4 {
-  /* border: 1px solid #395b64;
-  border-radius: 3px; */
-  cursor: pointer;
-}
+
 h6 {
   color: #395b64;
   font-style: oblique;
@@ -134,28 +128,30 @@ ul {
 }
 .unanswered {
   float: left;
-  width: 50%;
+  width: 100%;
   background-color: #e7f6f2;
 }
 
 .unanswered ul {
-  width: 200%;
   background-color: #e7f6f2;
 }
-.unanswered h4 {
-  border: 2px solid #395b64;
-  border-bottom-style: none;
-  margin: 0;
-}
+
 .answered {
   float: right;
-  width: 50%;
+  width: 100%;
+  background-color: #e7f6f2;
 }
-.answered h4 {
-  /* border: 2px solid #395b64; */
-  border-bottom-style: none;
+h4 {
+  border: 2px solid #395b64;
   margin: 0;
 }
-.answered h4:hover {
+h4:hover {
   background-color: powderblue;
+}
+h4:focus {
+  background-color: #395b64;
+}
+button {
+  all: unset;
+  cursor: pointer;
 }

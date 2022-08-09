@@ -1,30 +1,53 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { connect } from "react-redux";
-import Questions from "./Questions";
+import Unanswered from "./Unanswered";
+import Answered from "./Answered";
 
 class Content extends Component {
+  constructor() {
+    super();
+    this.state = {
+      show: true,
+    };
+  }
   render() {
     return (
-      <div className="content-nav">
-        <div className="unanswered">
-          <h4>Unanswered</h4>
-          <ul className="question-list">
-            {this.props.questionsIds.map((id) => (
-              <li key={id}>
-                <Questions id={id} />
-              </li>
-            ))}
-          </ul>
+      <div className="content">
+        <div className="content-nav">
+          <button onClick={() => this.setState({ show: true })}>
+            <h4 tabIndex="1">Unanswered</h4>
+          </button>
+          <button onClick={() => this.setState({ show: false })}>
+            <h4 tabIndex="2">Answered</h4>
+          </button>
         </div>
-        <div className="answered">
-          <h4>Answered</h4>
-        </div>
+        {this.state.show === true && (
+          <div className="unanswered">
+            <ul className="question-list">
+              {this.props.questionsIds.map((id) => (
+                <li key={id}>
+                  <Unanswered id={id} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {this.state.show === false && (
+          <div className="answered">
+            <ul className="question-list">
+              {this.props.questionsIds.map((id) => (
+                <li key={id}>
+                  <Answered id={id} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     );
   }
 }
-function mapStateToProps({ questions }, { id }) {
-  console.log(id);
+function mapStateToProps({ questions }) {
   return {
     questionsIds: Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp

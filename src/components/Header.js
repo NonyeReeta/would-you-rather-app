@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Header extends Component {
   render() {
@@ -26,11 +27,15 @@ class Header extends Component {
           </h1>
         </div>
         <div className="username">
-          <h3> User Name</h3>
+          <h3> {this.props.authedUser}</h3>
         </div>
       </div>
     );
   }
 }
-
-export default Header;
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  };
+}
+export default connect(mapStateToProps)(Header);

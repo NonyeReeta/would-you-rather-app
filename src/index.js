@@ -15,22 +15,22 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
+        <Route exact path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<App />} />
       </Routes>
     </BrowserRouter>
   </Provider>
   // <BrowserRouter>
   //   <Routes>
   //     <Route
-  //       path="/login"
+  //       path="/"
   //       element={
   //         <Provider store={store}>
-  //           <Login />
+  //           <App />
   //         </Provider>
   //       }
   //     />
-  //     <Route path="/" element={<App />} />
+  //     <Route path="/login" element={<Login />} />
   //   </Routes>
   // </BrowserRouter>
 );

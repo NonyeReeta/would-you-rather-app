@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { handleInitialData, getAuthedUser } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
+import App from "./App";
 
 class Login extends Component {
-  componentDidMount() {
-    this.props.dispatch(handleInitialData());
-  }
+  // componentDidMount() {
+  //   this.props.dispatch(handleInitialData());
+  // }
   render() {
     const { users } = this.props;
     return (
@@ -21,15 +22,15 @@ class Login extends Component {
         <div className="login-content">
           <h4>Login as:</h4>
 
-          <ul className="users">
+          {/* <ul className="users">
             {users.map((user) => (
-              <Link to="/" key={user}>
-                <li key={user} onClick={() => getAuthedUser(user)}>
+              <li key={user} onClick={() => getAuthedUser(user)}>
+                <Link to="/" key={user}>
                   {user}
-                </li>
-              </Link>
+                </Link>
+              </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
     );
