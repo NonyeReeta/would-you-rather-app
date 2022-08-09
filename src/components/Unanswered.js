@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatUnansweredQuestion, formatDate } from "../utils/helper";
+import { Link } from "react-router-dom";
 
 class Unanswered extends Component {
   render() {
@@ -12,13 +13,24 @@ class Unanswered extends Component {
     const { id, author, text, optionOne, optionTwo, timestamp } = unAnswered;
     return (
       <div className="question">
-        <div className="question-info">
-          <div>
-            <span>{text}</span>
-            <h6>{`By ${author}`}</h6>
-            <p>{formatDate(timestamp)}</p>
+        <Link
+          to={`/questions/:${id}`}
+          state={{
+            author,
+            optionOne: optionOne.text,
+            optionTwo: optionTwo.text,
+            isAnswered: false,
+          }}
+          style={{ textDecoration: "none" }}
+        >
+          <div className="question-info">
+            <div>
+              <span>{text}</span>
+              <h6>{`By ${author}`}</h6>
+              <p>{formatDate(timestamp)}</p>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     );
   }

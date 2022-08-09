@@ -37,6 +37,20 @@ h4 {
   margin: 0 auto;
   padding: 10px;
 }
+.close-question {
+  display: block;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 53px;
+  background-image: url("./icons/back-arrow-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+  border: none;
+  outline: none;
+}
 .header {
   margin-bottom: 300px;
 }
@@ -48,7 +62,8 @@ h3 {
   margin-top: 0;
 }
 
-h6 {
+h6,
+p {
   color: #395b64;
   font-style: oblique;
   font-weight: 800;
@@ -76,6 +91,12 @@ li {
 .nav li:first-child {
   padding-left: 0;
 }
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin: 5%;
+}
 
 .question {
   width: 100%;
@@ -91,6 +112,9 @@ li {
   border: 2px solid #395b64;
   margin-top: 0px;
   border-top-style: none;
+}
+.question-content {
+  text-align: center;
 }
 span {
   color: #2c3333;
@@ -141,7 +165,8 @@ ul {
   width: 100%;
   background-color: #e7f6f2;
 }
-h4 {
+h4,
+h5 {
   border: 2px solid #395b64;
   margin: 0;
 }
@@ -154,4 +179,44 @@ h4:focus {
 button {
   all: unset;
   cursor: pointer;
+}
+
+/* button style from https://getcssscan.com/ */
+.button {
+  background-color: #2c3333;
+  background-image: linear-gradient(#2c3333 0, #395b64 100%);
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+  color: #e7f6f2;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 60px;
+  line-height: 60px;
+  margin-left: -4px;
+  outline: 0;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: bottom;
+  width: 190px;
+  margin: 20px;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 1000px) {
+  .button {
+    font-size: 14px;
+    height: 55px;
+    line-height: 55px;
+    width: 150px;
+  }
 }

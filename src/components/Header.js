@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 class Header extends Component {
   render() {
+    const { userName } = this.props;
     return (
       <div className="header">
         <nav className="nav">
@@ -27,15 +28,16 @@ class Header extends Component {
           </h1>
         </div>
         <div className="username">
-          <h3> {this.props.authedUser}</h3>
+          <h3> {userName}</h3>
         </div>
       </div>
     );
   }
 }
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ users }, { authedUser }) {
+  console.log(users[authedUser]);
   return {
-    authedUser,
+    userName: users[authedUser].name,
   };
 }
 export default connect(mapStateToProps)(Header);

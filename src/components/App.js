@@ -19,8 +19,8 @@ class App extends Component {
     return (
       <div className="container">
         <LoadingBar />
-        <Header authedUser={authedUser} />
-        {this.props.loading === true ? null : <Content />}
+        {loading === true ? null : <Header authedUser={authedUser} />}
+        {loading === true ? null : <Content />}
       </div>
     );
   }

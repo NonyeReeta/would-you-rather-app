@@ -7,7 +7,8 @@ import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import middleware from "./middleware";
-import Login from "./components/Login";
+// import Login from "./components/Login";
+import Questions from "./components/Questions";
 
 const store = createStore(reducer, middleware);
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -16,7 +17,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<App />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/questions/:id" element={<Questions />}></Route>
       </Routes>
     </BrowserRouter>
   </Provider>
