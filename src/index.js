@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import reducer from "./reducers";
 import middleware from "./middleware";
 // import Login from "./components/Login";
-import Questions from "./components/Questions";
+import Question from "./components/Question";
 
 const store = createStore(reducer, middleware);
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,7 +18,7 @@ root.render(
       <Routes>
         <Route exact path="/" element={<App />} />
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path="/questions/:id" element={<Questions />}></Route>
+        <Route path="/questions/:id" element={<Question />}></Route>
       </Routes>
     </BrowserRouter>
   </Provider>

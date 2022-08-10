@@ -116,6 +116,10 @@ li {
 .question-content {
   text-align: center;
 }
+.question-content button {
+  inline-size: 250px;
+  overflow-wrap: break-word;
+}
 span {
   color: #2c3333;
   font-weight: 500;

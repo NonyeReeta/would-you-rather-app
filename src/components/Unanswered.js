@@ -20,6 +20,7 @@ class Unanswered extends Component {
             optionOne: optionOne.text,
             optionTwo: optionTwo.text,
             isAnswered: false,
+            id,
           }}
           style={{ textDecoration: "none" }}
         >

@@ -18,10 +18,9 @@ class Answered extends Component {
           state={{
             author,
             optionOne: optionOne,
-            // optionOneVotes: optionOne.votes,
             optionTwo: optionTwo,
-            // optionTwoVotes: optionTwo.votes,
             isAnswered: true,
+            id,
           }}
           style={{ textDecoration: "none" }}
         >
