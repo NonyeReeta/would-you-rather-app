@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-// import AnsweredQuestion from "./AnsweredQuestion";
 import Question from "./Question";
 import { handleAddAnswer } from "../actions/questions";
 
 function UnansweredQuestion(props) {
   const location = useLocation();
   const { authedUser, dispatch, avatar } = props;
-  console.log(avatar);
   const { author, optionOne, optionTwo, id } = location.state;
   const navigate = useNavigate();
   const handleButton = (e) => {
