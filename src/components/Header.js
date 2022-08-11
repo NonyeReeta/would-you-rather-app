@@ -35,7 +35,6 @@ class Header extends Component {
   }
 }
 function mapStateToProps({ users }, { authedUser }) {
-  console.log(users[authedUser]);
   return {
     userName: users[authedUser].name,
   };

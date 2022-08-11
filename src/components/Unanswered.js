@@ -17,8 +17,8 @@ class Unanswered extends Component {
           to={`/questions/:${id}`}
           state={{
             author,
-            optionOne: optionOne.text,
-            optionTwo: optionTwo.text,
+            optionOne: optionOne,
+            optionTwo: optionTwo,
             isAnswered: false,
             id,
           }}
@@ -44,7 +44,7 @@ function mapStateToProps({ questions, authedUser }, { id }) {
     question.optionTwo.votes.includes(authedUser);
   if (!isAnswered) {
     const unAnswered = formatUnansweredQuestion(question);
-    return { unAnswered };
+    return { unAnswered, id };
   }
 }
 

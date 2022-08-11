@@ -4,13 +4,14 @@ import { useLocation } from "react-router-dom";
 
 function AnsweredQuestion(props) {
   const location = useLocation();
-  const { numUsers, authedUser } = props;
+  const { numUsers, authedUser, text } = props;
   const { optionOne, optionTwo, id } = location.state;
-
+  console.log(text === optionOne.text);
   return (
     <div className="question-content">
       <div className="options">
         <div>
+          {text === optionOne.text && <p>You voted</p>}
           <h5
             style={{
               backgroundColor: optionOne.votes.includes(authedUser)
@@ -20,7 +21,7 @@ function AnsweredQuestion(props) {
           >
             {optionOne.text}
           </h5>
-          <p>{optionOne.votes.length} users voted</p>
+          <p>{optionOne.votes.length} other users voted</p>
           <p>
             {Math.round(
               (optionOne.votes.length / numUsers + Number.EPSILON) * 100
@@ -29,6 +30,7 @@ function AnsweredQuestion(props) {
           </p>
         </div>
         <div>
+          {text === optionTwo.text && <p>You voted</p>}
           <h5
             style={{
               backgroundColor: optionTwo.votes.includes(authedUser)
@@ -38,7 +40,7 @@ function AnsweredQuestion(props) {
           >
             {optionTwo.text}
           </h5>
-          <p>{optionTwo.votes.length} users voted</p>
+          <p>{optionTwo.votes.length} other users voted</p>
           <p>
             {Math.round(
               (optionTwo.votes.length / numUsers + Number.EPSILON) * 100
@@ -51,7 +53,11 @@ function AnsweredQuestion(props) {
   );
 }
 
-function mapStateToProps({ users, authedUser }) {
-  return { numUsers: Object.keys(users).length, authedUser };
+function mapStateToProps({ users, questions, authedUser }, { id, text }) {
+  return {
+    numUsers: Object.keys(users).length,
+    authedUser,
+    text,
+  };
 }
 export default connect(mapStateToProps)(AnsweredQuestion);
