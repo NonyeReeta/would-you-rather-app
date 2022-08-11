@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 function AnsweredQuestion(props) {
   const location = useLocation();
   const { numUsers, authedUser, text } = props;
-  const { optionOne, optionTwo, id } = location.state;
+  const { optionOne, optionTwo } = location.state;
   console.log(text === optionOne.text);
   return (
     <div className="question-content">
@@ -53,7 +53,7 @@ function AnsweredQuestion(props) {
   );
 }
 
-function mapStateToProps({ users, questions, authedUser }, { id, text }) {
+function mapStateToProps({ users, authedUser }, { text }) {
   return {
     numUsers: Object.keys(users).length,
     authedUser,

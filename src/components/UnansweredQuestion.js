@@ -7,7 +7,8 @@ import { handleAddAnswer } from "../actions/questions";
 
 function UnansweredQuestion(props) {
   const location = useLocation();
-  const { authedUser, dispatch } = props;
+  const { authedUser, dispatch, avatar } = props;
+  console.log(avatar);
   const { author, optionOne, optionTwo, id } = location.state;
   const navigate = useNavigate();
   const handleButton = (e) => {
@@ -28,6 +29,7 @@ function UnansweredQuestion(props) {
   return (
     <div className="question-content">
       <div>
+        <img src={avatar} alt={`Avatar of ${author}`} className="avatar"></img>
         <h3>Would you rather,</h3>
 
         <button className="button" onClick={(e) => handleButton(e)}>
@@ -41,7 +43,7 @@ function UnansweredQuestion(props) {
   );
 }
 
-function mapStateToProps({ users, authedUser }) {
-  return { authedUser };
+function mapStateToProps({ authedUser }, { avatar }) {
+  return { authedUser, avatar };
 }
 export default connect(mapStateToProps)(UnansweredQuestion);

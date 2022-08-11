@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 class Unanswered extends Component {
   render() {
-    const { unAnswered } = this.props;
+    const { unAnswered, avatar } = this.props;
     // console.log(answered);
     if (unAnswered === undefined) {
       return <ul></ul>;
@@ -21,6 +21,7 @@ class Unanswered extends Component {
             optionTwo: optionTwo,
             isAnswered: false,
             id,
+            avatar,
           }}
           style={{ textDecoration: "none" }}
         >
@@ -37,14 +38,14 @@ class Unanswered extends Component {
   }
 }
 
-function mapStateToProps({ questions, authedUser }, { id }) {
+function mapStateToProps({ users, questions, authedUser }, { id }) {
   const question = questions[id];
   const isAnswered =
     question.optionOne.votes.includes(authedUser) ||
     question.optionTwo.votes.includes(authedUser);
   if (!isAnswered) {
     const unAnswered = formatUnansweredQuestion(question);
-    return { unAnswered, id };
+    return { unAnswered, avatar: users[authedUser].avatarURL };
   }
 }
 

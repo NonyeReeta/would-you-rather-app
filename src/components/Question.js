@@ -7,15 +7,15 @@ import UnansweredQuestion from "./UnansweredQuestion";
 function Question(props) {
   const location = useLocation();
   // const { numUsers, authedUser, dispatch } = props;
-  const { author, optionOne, optionTwo, isAnswered, id, text } = location.state;
-  console.log(id);
+  const { author, optionOne, optionTwo, isAnswered, id, text, avatar } =
+    location.state;
   return (
     <div className="question-content">
       <Link to="/">
         <button className="close-question">Close</button>
       </Link>
-      {isAnswered === false && <UnansweredQuestion />}
-      {isAnswered === true && <AnsweredQuestion id={id} text={text} />}
+      {isAnswered === false && <UnansweredQuestion avatar={avatar} />}
+      {isAnswered === true && <AnsweredQuestion text={text} />}
     </div>
   );
 }
