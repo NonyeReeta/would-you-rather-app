@@ -19,7 +19,9 @@ class Header extends Component {
                 New Poll
               </Link>
             </li>
-            <li>Leaderboard</li>
+            <Link to="/leaderboard">
+              <li>Leaderboard</li>
+            </Link>
             <li>Logout</li>
           </ul>
         </nav>
