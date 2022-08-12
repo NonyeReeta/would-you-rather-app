@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   render() {
@@ -9,14 +10,14 @@ class Header extends Component {
         <nav className="nav">
           <ul>
             <li>
-              {/* <Link to="/" exact activeClassName="active"> */}
-              Home
-              {/* </Link> */}
+              <Link to="/" exact activeClassName="active">
+                Home
+              </Link>
             </li>
             <li>
-              {/* <Link to="/new" activeClassName="active"> */}
-              New Poll
-              {/* </Link> */}
+              <Link to="/add" activeClassName="active">
+                New Poll
+              </Link>
             </li>
             <li>Leaderboard</li>
             <li>Logout</li>

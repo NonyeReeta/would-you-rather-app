@@ -9,6 +9,7 @@ import reducer from "./reducers";
 import middleware from "./middleware";
 // import Login from "./components/Login";
 import Question from "./components/Question";
+import AddPoll from "./components/AddPoll";
 
 const store = createStore(reducer, middleware);
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -19,6 +20,7 @@ root.render(
         <Route exact path="/" element={<App />} />
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/questions/:id" element={<Question />}></Route>
+        <Route path="/add" element={<AddPoll />}></Route>
       </Routes>
     </BrowserRouter>
   </Provider>
