@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { setAuthedUser } from "../actions/authedUser";
 class Header extends Component {
   render() {
-    const { userName } = this.props;
+    const { userName, dispatch } = this.props;
+    function handleLogout() {
+      dispatch(setAuthedUser(""));
+    }
     return (
       <div className="header">
         <nav className="nav">
@@ -20,7 +23,9 @@ class Header extends Component {
             <Link to="/leaderboard">
               <li>Leaderboard</li>
             </Link>
-            <li>Logout</li>
+            <Link to="/">
+              <li onClick={handleLogout}>Logout</li>
+            </Link>
           </ul>
         </nav>
         <div className="app-name">
