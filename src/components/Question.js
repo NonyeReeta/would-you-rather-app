@@ -7,8 +7,7 @@ import UnansweredQuestion from "./UnansweredQuestion";
 function Question(props) {
   const location = useLocation();
   // const { numUsers, authedUser, dispatch } = props;
-  const { author, optionOne, optionTwo, isAnswered, id, text, avatar } =
-    location.state;
+  const { isAnswered, text, avatar } = location.state;
   return (
     <div className="question-content">
       <Link to="/">

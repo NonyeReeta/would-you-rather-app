@@ -1,11 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class LeaderBoard extends Component {
   render() {
-    const { leaderboardData } = this.props;
+    const { leaderboardData, authedUser } = this.props;
+    if (!authedUser) {
+      return (
+        <div>
+          <h4>Please login</h4>
+        </div>
+      );
+    }
     return (
       <div>
+        <Link to="/">
+          <button className="close-question">Close</button>
+        </Link>
         <ul className="board-container">
           {leaderboardData.map((data) => (
             <li key={data.id} className="board">
@@ -27,7 +38,7 @@ class LeaderBoard extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   /* Leaderboard date from https://knowledge.udacity.com/questions/635207 */
   const leaderboardData = Object.values(users)
     .map((user) => ({
@@ -41,7 +52,7 @@ function mapStateToProps({ users }) {
     .sort((a, b) => a.score - b.score)
     .reverse()
     .slice(0, 3);
-  return { leaderboardData };
+  return { leaderboardData, authedUser };
 }
 
 export default connect(mapStateToProps)(LeaderBoard);

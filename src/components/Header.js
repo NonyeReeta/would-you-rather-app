@@ -10,14 +10,12 @@ class Header extends Component {
         <nav className="nav">
           <ul>
             <li>
-              <Link to="/" exact activeClassName="active">
+              <Link to="/" exact>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/add" activeClassName="active">
-                New Poll
-              </Link>
+              <Link to="/add">New Poll</Link>
             </li>
             <Link to="/leaderboard">
               <li>Leaderboard</li>
