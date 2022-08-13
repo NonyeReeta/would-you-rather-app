@@ -13,13 +13,12 @@ code {
     monospace;
 }
 .avatar {
-  height: 0100px;
+  height: 100px;
   border-radius: 25px;
   margin: 10px;
 }
 .content {
   height: 100%;
-  /* border-style: solid; */
 }
 .content-nav {
   display: grid;
@@ -31,6 +30,7 @@ h4 {
   font-size: x-large;
   font-weight: 700;
   padding: 10px 50px;
+  width: inherit;
 }
 .app-name {
   float: left;
@@ -62,7 +62,7 @@ h4 {
 h1,
 h3 {
   color: #395b64;
-  font-size: 80px;
+  font-size: 40px;
   font-weight: lighter;
   margin-top: 0;
 }
@@ -97,25 +97,24 @@ li {
   padding-left: 0;
 }
 .new-poll {
+  padding: 10px 10%;
   text-align: center;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
+  width: 80%;
 }
 .new-poll h6 {
   font-size: larger;
-  height: 50px;
   margin: 0%;
   text-align: center;
 }
 .new-poll h3 {
-  margin: 0%;
-  height: 150px;
+  font-weight: 10;
 }
 .new-poll form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-  margin: 5%;
+  grid-template-columns: auto;
+  margin-left: 25%;
 }
 .options {
   display: grid;
@@ -174,7 +173,8 @@ ul {
 }
 .board-container {
   text-align: center;
-  margin: 100px;
+  margin: 10%;
+  width: 80%;
 }
 .board {
   display: grid;
@@ -260,7 +260,7 @@ button {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: bottom;
-  width: 190px;
+  width: 100px;
   margin: 20px;
 }
 
@@ -274,5 +274,29 @@ button {
     height: 55px;
     line-height: 55px;
     width: 150px;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  .board img {
+    height: 80px;
+    border-radius: 25px;
+    margin: 5px;
+  }
+
+  .board p,
+  h6 {
+    word-break: break-word;
+  }
+}
+@media screen and (max-width: 483px) {
+  .content-nav button {
+  }
+  .content-nav h4 {
+    /* background-color: aqua;
+    width: 50%;
+    padding: 0px;
+    /* font-weight: 100; */
+    /* font-size: larger; */
   }
 }

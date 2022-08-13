@@ -51,38 +51,40 @@ class AddPoll extends Component {
       );
     }
     return (
-      <div className="new-poll">
+      <div>
         <Link to="/">
           <button className="close-question">Close</button>
         </Link>
-        <h3>Add a new poll</h3>
-        <div>
-          <h6>Would you rather</h6>
-          <form onSubmit={this.handleSubmit}>
-            <textarea
-              placeholder="Option One"
-              maxLength={180}
-              className="textarea"
-              value={text1}
-              onChange={this.handleChange1}
-            ></textarea>
-            <p>or</p>
-            <textarea
-              placeholder="Option Two"
-              maxLength={180}
-              className="textarea"
-              value={text2}
-              onChange={this.handleChange2}
-            ></textarea>
-            <p></p>
-            <button
-              className="button"
-              type="submit"
-              disabled={!text1 || !text2}
-            >
-              Submit
-            </button>
-          </form>
+        <div className="new-poll">
+          <h3>Add a new poll</h3>
+          <div>
+            <h6>Would you rather</h6>
+            <form onSubmit={this.handleSubmit}>
+              <textarea
+                placeholder="Option One"
+                maxLength={180}
+                className="textarea"
+                value={text1}
+                onChange={this.handleChange1}
+              ></textarea>
+              <p>or</p>
+              <textarea
+                placeholder="Option Two"
+                maxLength={180}
+                className="textarea"
+                value={text2}
+                onChange={this.handleChange2}
+              ></textarea>
+              <p></p>
+              <button
+                className="button"
+                type="submit"
+                disabled={!text1 || !text2}
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     );
