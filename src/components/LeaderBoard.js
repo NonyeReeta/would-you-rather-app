@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import Header from "./Header";
 
 class LeaderBoard extends Component {
@@ -14,26 +13,26 @@ class LeaderBoard extends Component {
       );
     }
     return (
-      <div>
-        <Link to="/">
-          <button className="close-question">Close</button>
-        </Link>
-        <ul className="board-container">
-          {leaderboardData.map((data) => (
-            <li key={data.id} className="board">
-              <img
-                src={data.avatarURL}
-                alt={`Avatar of ${data.name}`}
-                className="avatar"
-              ></img>
-              <p>{data.name}</p>
-              <h6>{`Total score: ${data.score}`}</h6>
+      <div className="container">
+        <Header authedUser={authedUser} />
+        <div>
+          <ul className="board-container">
+            {leaderboardData.map((data) => (
+              <li key={data.id} className="board">
+                <img
+                  src={data.avatarURL}
+                  alt={`Avatar of ${data.name}`}
+                  className="avatar"
+                ></img>
+                <p>{data.name}</p>
+                <h6>{`Total score: ${data.score}`}</h6>
 
-              <h6>{`Total of ${data.questionsCount} questions asked`}</h6>
-              <h6>{`Total of ${data.answersCount} questions answered`}</h6>
-            </li>
-          ))}
-        </ul>
+                <h6>{`Total of ${data.questionsCount} questions asked`}</h6>
+                <h6>{`Total of ${data.answersCount} questions answered`}</h6>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }

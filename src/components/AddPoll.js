@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { handleAddQuestion } from "../actions/questions";
+import Header from "./Header";
 class AddPoll extends Component {
   state = {
     text1: "",
@@ -40,6 +41,7 @@ class AddPoll extends Component {
   };
   render() {
     const { text1, text2, toHome } = this.state;
+    const { authedUser } = this.props;
     if (toHome === true) {
       return <Navigate to="/" />;
     }
@@ -51,10 +53,8 @@ class AddPoll extends Component {
       );
     }
     return (
-      <div>
-        <Link to="/">
-          <button className="close-question">Close</button>
-        </Link>
+      <div className="container">
+        <Header authedUser={authedUser} />
         <div className="new-poll">
           <h3>Add a new poll</h3>
           <div>

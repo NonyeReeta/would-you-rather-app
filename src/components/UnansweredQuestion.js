@@ -26,8 +26,9 @@ function UnansweredQuestion(props) {
     });
   };
   return (
-    <div>
-      {/* <Header authedUser={this.props.authedUser} /> */}
+    <div className="container">
+      <Header authedUser={authedUser} />
+
       <div className="question-content">
         <div>
           <img
