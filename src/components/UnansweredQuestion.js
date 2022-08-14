@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import Question from "./Question";
 import { handleAddAnswer } from "../actions/questions";
+import Header from "./Header";
 
 function UnansweredQuestion(props) {
   const location = useLocation();
@@ -25,17 +26,24 @@ function UnansweredQuestion(props) {
     });
   };
   return (
-    <div className="question-content">
-      <div>
-        <img src={avatar} alt={`Avatar of ${author}`} className="avatar"></img>
-        <h3>Would you rather,</h3>
+    <div>
+      {/* <Header authedUser={this.props.authedUser} /> */}
+      <div className="question-content">
+        <div>
+          <img
+            src={avatar}
+            alt={`Avatar of ${author}`}
+            className="avatar"
+          ></img>
+          <h3>Would you rather,</h3>
 
-        <button className="button" onClick={(e) => handleButton(e)}>
-          {optionOne.text}
-        </button>
-        <button className="button" onClick={(e) => handleButton(e)}>
-          {optionTwo.text}
-        </button>
+          <button className="button" onClick={(e) => handleButton(e)}>
+            {optionOne.text}
+          </button>
+          <button className="button" onClick={(e) => handleButton(e)}>
+            {optionTwo.text}
+          </button>
+        </div>
       </div>
     </div>
   );

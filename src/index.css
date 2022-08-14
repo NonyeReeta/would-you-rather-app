@@ -57,7 +57,7 @@ h4 {
   outline: none;
 }
 .header {
-  margin-bottom: 300px;
+  margin-bottom: 200px;
 }
 h1,
 h3 {
@@ -287,16 +287,5 @@ button {
   .board p,
   h6 {
     word-break: break-word;
-  }
-}
-@media screen and (max-width: 483px) {
-  .content-nav button {
-  }
-  .content-nav h4 {
-    /* background-color: aqua;
-    width: 50%;
-    padding: 0px;
-    /* font-weight: 100; */
-    /* font-size: larger; */
   }
 }
