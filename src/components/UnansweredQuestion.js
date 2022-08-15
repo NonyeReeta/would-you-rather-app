@@ -12,7 +12,9 @@ function UnansweredQuestion(props) {
   const navigate = useNavigate();
   const handleButton = (e) => {
     e.preventDefault();
-    const answer = e.target.innerHTML === optionOne ? "optionOne" : "optionTwo";
+    const answer =
+      e.target.innerHTML === optionOne.text ? "optionOne" : "optionTwo";
+
     dispatch(handleAddAnswer({ authedUser, id, answer }));
     navigate(Question, {
       state: {

@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
 import Header from "./Header";
 
 class LeaderBoard extends Component {
   render() {
     const { leaderboardData, authedUser } = this.props;
     if (!authedUser) {
-      return (
-        <div>
-          <h4>Please login</h4>
-        </div>
-      );
+      return <Navigate to="/" />;
     }
     return (
       <div className="container">
