@@ -33,7 +33,6 @@ class App extends Component {
               <Route path="/add" element={<Add />}></Route>
               <Route path="/leaderboard" element={<LeaderBoard />}></Route>
               <Route path="/questions/:id" element={<Question />}></Route>
-              <Route path="/questions/:wrong_id" element={NotFound}></Route>
             </Routes>
           </div>
         )}
