@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { handleInitialData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
-import Header from "./Header";
-import Content from "./Content";
+import Dashboard from "./Dashboard";
 import Login from "./Login";
+import Question from "./Question";
+import Add from "./Add";
+import LeaderBoard from "./LeaderBoard";
+import NotFound from "./NotFound";
 
 class App extends Component {
   state = {
@@ -15,16 +18,24 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
   render() {
-    const { authedUser, loading } = this.props;
-    if (!authedUser) {
-      return <Login />;
-    }
+    const { authedUser } = this.props;
     return (
-      <div className="container">
+      <div>
         <LoadingBar />
 
-        {loading === true ? null : <Header authedUser={authedUser} />}
-        {loading === true ? null : <Content />}
+        {authedUser === null ? (
+          <Login />
+        ) : (
+          <div className="container">
+            <Routes>
+              <Route path="/*" element={<NotFound />}></Route>
+              <Route path="/" element={<Dashboard />}></Route>
+              <Route path="/add" element={<Add />}></Route>
+              <Route path="/leaderboard" element={<LeaderBoard />}></Route>
+              <Route path="/questions/:id" element={<Question />}></Route>
+            </Routes>
+          </div>
+        )}
       </div>
     );
   }
@@ -33,7 +44,6 @@ class App extends Component {
 function mapStateToProps({ authedUser }) {
   return {
     authedUser,
-    loading: authedUser === null,
   };
 }
 

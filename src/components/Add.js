@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { handleAddQuestion } from "../actions/questions";
 import Header from "./Header";
-class AddPoll extends Component {
+class Add extends Component {
   state = {
     text1: "",
     text2: "",
@@ -45,13 +45,7 @@ class AddPoll extends Component {
     if (toHome === true) {
       return <Navigate to="/" />;
     }
-    if (!this.props.authedUser) {
-      return (
-        <div>
-          <h4>Please login</h4>
-        </div>
-      );
-    }
+
     return (
       <div className="container">
         <Header authedUser={authedUser} />
@@ -94,4 +88,4 @@ class AddPoll extends Component {
 function mapStateToProps({ authedUser }) {
   return { authedUser };
 }
-export default connect(mapStateToProps)(AddPoll);
+export default connect(mapStateToProps)(Add);

@@ -5,8 +5,9 @@ import { setAuthedUser } from "../actions/authedUser";
 class Header extends Component {
   render() {
     const { userName, dispatch } = this.props;
-    function handleLogout() {
-      dispatch(setAuthedUser(""));
+    function handleLogout(e) {
+      e.preventDefault();
+      dispatch(setAuthedUser(null));
     }
     return (
       <div className="header">
@@ -42,7 +43,7 @@ class Header extends Component {
 }
 function mapStateToProps({ users }, { authedUser }) {
   return {
-    userName: users[authedUser].name,
+    userName: authedUser,
   };
 }
 export default connect(mapStateToProps)(Header);

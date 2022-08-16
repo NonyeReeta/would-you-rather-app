@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { setAuthedUser } from "../actions/authedUser";
 import LoadingBar from "react-redux-loading-bar";
+import App from "./App";
 
 class Login extends Component {
   render() {
@@ -10,6 +10,7 @@ class Login extends Component {
     function handleLogin(e) {
       const authedUser = e.target.innerText;
       dispatch(setAuthedUser(authedUser));
+      return <App />;
     }
     return (
       <div className="login">
@@ -25,9 +26,7 @@ class Login extends Component {
           <ul className="users">
             {users.map((user) => (
               <li key={user} onClick={handleLogin}>
-                <Link to="/" key={user}>
-                  {user}
-                </Link>
+                {user}
               </li>
             ))}
           </ul>
