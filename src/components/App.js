@@ -9,11 +9,9 @@ import Question from "./Question";
 import Add from "./Add";
 import LeaderBoard from "./LeaderBoard";
 import NotFound from "./NotFound";
+import Header from "./Header";
 
 class App extends Component {
-  state = {
-    loggedin: false,
-  };
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
@@ -27,6 +25,8 @@ class App extends Component {
           <Login />
         ) : (
           <div className="container">
+            <Header authedUser={authedUser} />
+
             <Routes>
               <Route path="/*" element={<NotFound />}></Route>
               <Route path="/" element={<Dashboard />}></Route>

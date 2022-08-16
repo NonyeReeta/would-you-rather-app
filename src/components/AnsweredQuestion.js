@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useLocation } from "react-router-dom";
-import Header from "./Header";
 
 function AnsweredQuestion(props) {
   const location = useLocation();
@@ -10,8 +9,6 @@ function AnsweredQuestion(props) {
   console.log(text === optionOne.text);
   return (
     <div className="container">
-      <Header authedUser={authedUser} />
-
       <div className="question-content">
         <div className="options">
           <div>

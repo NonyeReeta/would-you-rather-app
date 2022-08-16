@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import Question from "./Question";
 import { handleAddAnswer } from "../actions/questions";
-import Header from "./Header";
 
 function UnansweredQuestion(props) {
   const location = useLocation();
@@ -29,8 +28,6 @@ function UnansweredQuestion(props) {
   };
   return (
     <div className="container">
-      <Header authedUser={authedUser} />
-
       <div className="question-content">
         <div>
           <img

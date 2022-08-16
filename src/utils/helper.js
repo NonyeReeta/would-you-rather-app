@@ -1,9 +1,9 @@
-export function formatUnansweredQuestion(unanswered) {
-  const { id, author, optionOne, optionTwo, timestamp } = unanswered;
+export function formatQuestion(question) {
+  const { id, author, optionOne, optionTwo, timestamp } = question;
   return {
     id,
     author,
-    text: `Would you rather "${unanswered.optionOne.text}" or "${unanswered.optionTwo.text}"?`,
+    text: `Would you rather "${question.optionOne.text}" or "${question.optionTwo.text}"?`,
     optionOne,
     optionTwo,
     timestamp,

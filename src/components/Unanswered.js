@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { formatUnansweredQuestion, formatDate } from "../utils/helper";
+import { formatQuestion, formatDate } from "../utils/helper";
 import { Link } from "react-router-dom";
 
 class Unanswered extends Component {
@@ -43,7 +43,7 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
     question.optionOne.votes.includes(authedUser) ||
     question.optionTwo.votes.includes(authedUser);
   if (!isAnswered) {
-    const unAnswered = formatUnansweredQuestion(question);
+    const unAnswered = formatQuestion(question);
     return { unAnswered, users };
   }
 }

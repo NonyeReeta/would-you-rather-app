@@ -1,24 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Header from "./Header";
-import Content from "./Content";
+import Unanswered from "./Unanswered";
+import Answered from "./Answered";
 
 class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      show: true,
+    };
+  }
   render() {
-    const { authedUser } = this.props;
-
     return (
-      <div className="container">
-        <Header authedUser={authedUser} />
-        <Content />
+      <div className="content">
+        <div className="content-nav">
+          <button onClick={() => this.setState({ show: true })}>
+            <h4 tabIndex="1">Unanswered</h4>
+          </button>
+          <button onClick={() => this.setState({ show: false })}>
+            <h4 tabIndex="2">Answered</h4>
+          </button>
+        </div>
+        {this.state.show === true && (
+          <div className="unanswered">
+            <ul className="question-list">
+              {this.props.questionsIds.map((id) => (
+                <li key={id}>
+                  <Unanswered id={id} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {this.state.show === false && (
+          <div className="answered">
+            <ul className="question-list">
+              {this.props.questionsIds.map((id) => (
+                <li key={id}>
+                  <Answered id={id} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     );
   }
 }
-
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ questions }) {
   return {
-    authedUser,
+    questionsIds: Object.keys(questions).sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
+    ),
   };
 }
 
