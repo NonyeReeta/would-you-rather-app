@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { handleInitialData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
 import Dashboard from "./Dashboard";
