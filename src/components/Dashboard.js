@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Unanswered from "./Unanswered";
 import Answered from "./Answered";
+import { handleInitialData } from "../actions/shared";
 
 class Dashboard extends Component {
   constructor() {
@@ -10,7 +11,11 @@ class Dashboard extends Component {
       show: true,
     };
   }
+  componentDidMount() {
+    this.props.dispatch(handleInitialData());
+  }
   render() {
+    const { questionsIds } = this.props;
     return (
       <div className="content">
         <div className="content-nav">
@@ -24,7 +29,7 @@ class Dashboard extends Component {
         {this.state.show === true && (
           <div className="unanswered">
             <ul className="question-list">
-              {this.props.questionsIds.map((id) => (
+              {questionsIds.map((id) => (
                 <li key={id}>
                   <Unanswered id={id} />
                 </li>
@@ -35,7 +40,7 @@ class Dashboard extends Component {
         {this.state.show === false && (
           <div className="answered">
             <ul className="question-list">
-              {this.props.questionsIds.map((id) => (
+              {questionsIds.map((id) => (
                 <li key={id}>
                   <Answered id={id} />
                 </li>

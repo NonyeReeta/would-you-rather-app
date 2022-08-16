@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { handleAddQuestion } from "../actions/questions";
-import Header from "./Header";
+
 class Add extends Component {
   state = {
     text1: "",
@@ -25,7 +25,6 @@ class Add extends Component {
     e.preventDefault();
     const { text1, text2 } = this.state;
     const { dispatch, authedUser } = this.props;
-    console.log(text1, text2, authedUser);
     dispatch(
       handleAddQuestion({
         author: authedUser,
@@ -41,14 +40,13 @@ class Add extends Component {
   };
   render() {
     const { text1, text2, toHome } = this.state;
-    const { authedUser } = this.props;
+    // const { authedUser } = this.props;
     if (toHome === true) {
       return <Navigate to="/" />;
     }
 
     return (
       <div className="container">
-        <Header authedUser={authedUser} />
         <div className="new-poll">
           <h3>Add a new poll</h3>
           <div>
