@@ -13,23 +13,41 @@ class Login extends Component {
       return <App />;
     }
     return (
-      <div className="login">
+      <div className="login-container">
         <LoadingBar />
+        <div className="login">
+          <div className="title-container">
+            <div class="title">
+              <span style={{ "--i": 1 }}>W</span>
+              <span style={{ "--i": 2 }}>o</span>
+              <span style={{ "--i": 3 }}>u</span>
+              <span style={{ "--i": 4 }}>l</span>
+              <span style={{ "--i": 5 }}>d</span>
+              <span> </span>
+              <span style={{ "--i": 6 }}>Y</span>
+              <span style={{ "--i": 7 }}>o</span>
+              <span style={{ "--i": 8 }}>u</span>
+              <span> </span>
+              <span style={{ "--i": 9 }}>R</span>
+              <span style={{ "--i": 10 }}>a</span>
+              <span style={{ "--i": 11 }}>t</span>
+              <span style={{ "--i": 12 }}>h</span>
+              <span style={{ "--i": 13 }}>e</span>
+              <span style={{ "--i": 14 }}>r</span>
+              <span style={{ "--i": 15 }}>.</span>
+            </div>
+          </div>
+          <div className="login-content">
+            <p>First question, Would you rather log in as:</p>
 
-        <h1>
-          <em>Would You Rather?</em>
-        </h1>
-
-        <div className="login-content">
-          <h2>Login as:</h2>
-
-          <ul className="users">
-            {users.map((user) => (
-              <li key={user} onClick={handleLogin}>
-                {user}
-              </li>
-            ))}
-          </ul>
+            <ul className="users">
+              {users.map((user) => (
+                <li key={user} onClick={handleLogin}>
+                  {user}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     );

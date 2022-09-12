@@ -26,7 +26,7 @@ function AnsweredQuestion(props) {
             <p>
               {Math.round(
                 (optionOne.votes.length / numUsers + Number.EPSILON) * 100
-              ) / 100}
+              )}
               % of users voted
             </p>
           </div>
@@ -45,7 +45,7 @@ function AnsweredQuestion(props) {
             <p>
               {Math.round(
                 (optionTwo.votes.length / numUsers + Number.EPSILON) * 100
-              ) / 100}
+              )}
               % of users voted
             </p>
           </div>
