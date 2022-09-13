@@ -66,7 +66,7 @@ class Add extends Component {
                 value={text2}
                 onChange={this.handleChange2}
               ></textarea>
-              <p></p>
+              {/* <p></p> */}
               <button
                 className="button"
                 type="submit"
