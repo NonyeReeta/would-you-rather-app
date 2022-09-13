@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
-import LoadingBar from "react-redux-loading-bar";
 import App from "./App";
 
 class Login extends Component {
@@ -14,7 +13,6 @@ class Login extends Component {
     }
     return (
       <div className="login-container">
-        <LoadingBar />
         <div className="login">
           <div className="title-container">
             <div class="title">
