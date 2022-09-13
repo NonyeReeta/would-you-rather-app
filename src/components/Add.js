@@ -40,7 +40,6 @@ class Add extends Component {
   };
   render() {
     const { text1, text2, toHome } = this.state;
-    // const { authedUser } = this.props;
     if (toHome === true) {
       return <Navigate to="/" />;
     }

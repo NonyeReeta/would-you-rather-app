@@ -25,16 +25,13 @@ class Header extends Component {
         </div>
 
         <ul className="nav-link-container">
-          <li className="nav-link">
-            <Link to="/" exact style={{ textDecoration: "none" }}>
-              Home
-            </Link>
-          </li>
-          <li className="nav-link">
-            <Link to="/add" style={{ textDecoration: "none" }}>
-              New Poll
-            </Link>
-          </li>
+          <Link to="/" exact style={{ textDecoration: "none" }}>
+            <li className="nav-link">Home</li>
+          </Link>
+          <Link to="/add" style={{ textDecoration: "none" }}>
+            <li className="nav-link">New Poll</li>
+          </Link>
+
           <Link to="/leaderboard" style={{ textDecoration: "none" }}>
             <li className="nav-link">Leaderboard</li>
           </Link>

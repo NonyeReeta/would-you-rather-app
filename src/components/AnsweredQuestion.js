@@ -22,6 +22,7 @@ function AnsweredQuestion(props) {
             >
               {optionOne.text}
             </h5>
+
             <p>{optionOne.votes.length} other users voted</p>
             <p>
               {Math.round(
