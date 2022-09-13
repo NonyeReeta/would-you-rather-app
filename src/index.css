@@ -183,8 +183,9 @@ li {
 }
 .question-list {
   border: 2px solid #395b64;
-  margin-top: 0px;
+  margin: 0;
   border-top-style: none;
+  /* background-color: #eeeeee; */
 }
 .question-content {
   text-align: center;
@@ -301,7 +302,7 @@ ul {
 .unanswered {
   float: left;
   width: 100%;
-  background-color: #e7f6f2;
+  background-color: #eeeeee;
 }
 
 .unanswered ul {
@@ -311,7 +312,7 @@ ul {
 .answered {
   float: right;
   width: 100%;
-  background-color: #e7f6f2;
+  background-color: #eeeeee;
 }
 h4,
 h5 {
@@ -319,10 +320,10 @@ h5 {
   margin: 0;
 }
 h4:hover {
-  background-color: powderblue;
+  background-color: #fa6b40;
 }
 h4:focus {
-  background-color: #395b64;
+  background-color: #ff5722;
 }
 button {
   all: unset;
@@ -408,7 +409,7 @@ button {
     position: absolute;
     height: 9px;
     width: 50%;
-    background: #ff5722;
+    background: #303841;
     opacity: 1;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -495,7 +496,6 @@ button {
   .side-bar {
     padding-right: 70px;
   }
-
   .welcome h3 {
     font-weight: 900;
     font-size: 600%;
